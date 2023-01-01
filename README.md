@@ -37,6 +37,14 @@ Scaffold(modifier = Modifier.fillMaxSize()) {
 }
 ```
 
+- Nught Mode
+<img src ="https://user-images.githubusercontent.com/54077752/210166940-994d42c9-3e60-41b1-8959-b6a5b86be878.png" height="320" />
+
+- Light Mode
+<img src ="https://user-images.githubusercontent.com/54077752/210166942-1759dacf-3e5c-483b-9ada-be66039b4a8a.png" height="320" />
+
+- Focused
+<img src ="https://user-images.githubusercontent.com/54077752/210166946-fb70928d-f3aa-4fe5-adf7-cdbc87893835.png"  height="320"/>
 
 
 ## Parameters
@@ -54,3 +62,6 @@ clicked. An updated text string comes as a parameter of the callback.
 
 ### modifier
 An optional Modifier that is applied to the search bar. By default, this defines the color and shape of the search bar.
+
+### hint
+An optional placeholder. This defaults to "Search".
