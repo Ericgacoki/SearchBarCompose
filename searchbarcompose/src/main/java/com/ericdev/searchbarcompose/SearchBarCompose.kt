@@ -36,69 +36,71 @@ fun SearchBarCompose(
     onSearchParamChange: (String) -> Unit,
     onSearchClick: (String) -> Unit
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(MinHeight) // 56.dp
-    ) {
-        var searchParam: String by remember { mutableStateOf("") }
+    Scaffold {
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(MinHeight) // 56.dp
+        ) {
+            var searchParam: String by remember { mutableStateOf("") }
 
-        val focusRequester = remember { FocusRequester() }
-        val focusManager = LocalFocusManager.current
+            val focusRequester = remember { FocusRequester() }
+            val focusManager = LocalFocusManager.current
 
-        TextField(
-            value = searchParam,
-            onValueChange = { newValue ->
-                searchParam = if (newValue.trim().isNotEmpty()) newValue else ""
-                onSearchParamChange(newValue)
-            },
-            modifier = Modifier
-                .fillMaxSize()
-                .focusRequester(focusRequester = focusRequester),
-            singleLine = true,
-            placeholder = {
-                Text(text = hint)
-            },
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color.Transparent,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ), keyboardOptions = KeyboardOptions(
-                autoCorrect = true,
-                keyboardType = KeyboardType.Text,
-                imeAction = ImeAction.Search
-            ),
-            keyboardActions = KeyboardActions(
-                onSearch = {
-                    onSearchClick(searchParam)
-                }
-            ),
-            trailingIcon = {
-                Row {
-                    AnimatedVisibility(visible = searchParam.trim().isNotEmpty()) {
+            TextField(
+                value = searchParam,
+                onValueChange = { newValue ->
+                    searchParam = if (newValue.trim().isNotEmpty()) newValue else ""
+                    onSearchParamChange(newValue)
+                },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .focusRequester(focusRequester = focusRequester),
+                singleLine = true,
+                placeholder = {
+                    Text(text = hint)
+                },
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color.Transparent,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ), keyboardOptions = KeyboardOptions(
+                    autoCorrect = true,
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Search
+                ),
+                keyboardActions = KeyboardActions(
+                    onSearch = {
+                        onSearchClick(searchParam)
+                    }
+                ),
+                trailingIcon = {
+                    Row {
+                        AnimatedVisibility(visible = searchParam.trim().isNotEmpty()) {
+                            IconButton(onClick = {
+                                focusManager.clearFocus()
+                                searchParam = ""
+                                onSearchParamChange(searchParam)
+                            }) {
+                                Icon(
+                                    imageVector = Icons.Default.Clear,
+                                    contentDescription = null
+                                )
+                            }
+                        }
+
                         IconButton(onClick = {
-                            focusManager.clearFocus()
-                            searchParam = ""
-                            onSearchParamChange(searchParam)
+                            onSearchClick(searchParam)
                         }) {
                             Icon(
-                                imageVector = Icons.Default.Clear,
+                                painter = painterResource(id = R.drawable.ic_search),
                                 contentDescription = null
                             )
                         }
                     }
-
-                    IconButton(onClick = {
-                        onSearchClick(searchParam)
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_search),
-                            contentDescription = null
-                        )
-                    }
                 }
-            }
-        )
+            )
+        }
     }
 }
 
