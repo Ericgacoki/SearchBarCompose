@@ -20,17 +20,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             SearchBarComposeTheme {
                 Scaffold() {
-                    Surface(modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 100.dp)) {
-                        SearchBarCompose(
-                            onSearchParamChange = {
+                    val i = it
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(top = 100.dp)
+                    ) {
+                        /* SearchBarCompose(
+                             onSearchParamChange = {
 
-                            },
-                            onSearchClick = {
+                             },
+                             onSearchClick = {
 
-                            }
-                        )
+                             }
+                         )*/
                     }
                 }
 
