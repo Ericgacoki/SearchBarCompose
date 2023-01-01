@@ -3,7 +3,7 @@
 ## Usage
 ---
 
-### 1. Add `jitpack` repository in the app's build.gradle file
+### 1. Add `jitpack` repository in the project's settings.gradle file
 
 ```gradle
 allprojects {
