@@ -18,7 +18,7 @@ allprojects {
 
 ```gradle
 dendencies {
-    implementation 'com.github.Ericgacoki:SearchBarCompose:1.0.1'
+    implementation 'com.github.Ericgacoki:SearchBarCompose:1.0.7'
 }
 ```
 
