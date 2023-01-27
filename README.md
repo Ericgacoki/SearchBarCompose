@@ -37,7 +37,7 @@ Scaffold(modifier = Modifier.fillMaxSize()) {
 }
 ```
 
-- Nught Mode
+- Night Mode
 <img src ="https://user-images.githubusercontent.com/54077752/210166940-994d42c9-3e60-41b1-8959-b6a5b86be878.png" height="320" />
 
 - Light Mode
