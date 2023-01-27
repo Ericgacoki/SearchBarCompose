@@ -1,5 +1,6 @@
 package com.ericdev.searchbarcompose
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SearchBarCompose(
     modifier: Modifier = Modifier
@@ -104,6 +106,7 @@ fun SearchBarCompose(
     }
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Preview(showBackground = true)
 @Composable
 private fun PreviewLight() {
